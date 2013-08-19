@@ -8,7 +8,7 @@ requests.utils imports from here, so be careful with imports.
 
 import time
 import collections
-from .compat import cookielib, urlparse, Morsel
+from .compat import cookielib, urlparse, Morsel, basestring
 
 try:
     import threading
@@ -372,7 +372,7 @@ def morsel_to_cookie(morsel):
         expires = time.time() + morsel["max-age"]
     elif morsel['expires']:
         expires = morsel['expires']
-        if type(expires) == type(""):
+        if isinstance(expires, basestring):
             time_template = "%a, %d-%b-%Y %H:%M:%S GMT"
             expires = time.mktime(time.strptime(expires, time_template))
     c = create_cookie(
