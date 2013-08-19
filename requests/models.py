@@ -167,7 +167,8 @@ class Request(RequestHooksMixin):
     :param url: URL to send.
     :param headers: dictionary of headers to send.
     :param files: dictionary of {filename: fileobject} files to multipart upload.
-    :param data: the body to attach the request. If a dictionary is provided, form-encoding will take place.
+    :param data:
+        the body to attach the request. If a dictionary is provided, form-encoding will take place.
     :param params: dictionary of URL parameters to append to the URL.
     :param auth: Auth handler or (user, pass) tuple.
     :param cookies: dictionary or CookieJar of cookies to attach to this request.
@@ -216,7 +217,8 @@ class Request(RequestHooksMixin):
         return '<Request [%s]>' % (self.method)
 
     def prepare(self):
-        """Constructs a :class:`PreparedRequest <PreparedRequest>` for transmission and returns it."""
+        """Constructs a :class:`PreparedRequest <PreparedRequest>`
+        for transmission and returns it."""
         p = PreparedRequest()
         p.prepare(
             method=self.method,
