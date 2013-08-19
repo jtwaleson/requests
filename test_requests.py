@@ -181,13 +181,13 @@ class RequestsTestCase(unittest.TestCase):
         assert r.json()['cookies']['foo'] == 'bar'
         # Make sure the session cj is still the custom one
         assert s.cookies is cj
-    
+
     def test_requests_in_history_are_not_overridden(self):
         resp = requests.get(httpbin('redirect/3'))
         urls = [r.url for r in resp.history]
         req_urls = [r.request.url for r in resp.history]
         self.assertEquals(urls, req_urls)
-        
+
     def test_user_agent_transfers(self):
 
         heads = {
@@ -245,7 +245,7 @@ class RequestsTestCase(unittest.TestCase):
         self.assertEqual(r.status_code, 401)
 
         s = requests.session()
-        
+
         # Should use netrc and work.
         r = s.get(url)
         self.assertEqual(r.status_code, 200)
@@ -281,7 +281,6 @@ class RequestsTestCase(unittest.TestCase):
 
         r = requests.get(url, auth=auth, stream=False)
         self.assertEqual(r.raw.read(), b'')
-
 
     def test_DIGESTAUTH_WRONG_HTTP_401_GET(self):
 
@@ -627,7 +626,6 @@ class RequestsTestCase(unittest.TestCase):
         s.params['foo'] = 'bar'
         r = s.get(httpbin('get'), params={'FOO': 'bar'})
         assert r.json()['args'] == {'foo': 'bar', 'FOO': 'bar'}
-
 
     def test_long_authinfo_in_url(self):
         url = 'http://{0}:{1}@{2}:9000/path?query#frag'.format(
