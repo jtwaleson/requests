@@ -152,8 +152,7 @@ class RequestsTestCase(unittest.TestCase):
         s.get(
             httpbin('response-headers'),
             params={
-                'Set-Cookie':
-                    'foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT'
+                'Set-Cookie': 'foo=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT'
             }
         )
         assert 'foo' not in s.cookies
@@ -640,7 +639,7 @@ class RequestsTestCase(unittest.TestCase):
 class TestCaseInsensitiveDict(unittest.TestCase):
 
     def test_mapping_init(self):
-        cid = CaseInsensitiveDict({'Foo': 'foo','BAr': 'bar'})
+        cid = CaseInsensitiveDict({'Foo': 'foo', 'BAr': 'bar'})
         self.assertEqual(len(cid), 2)
         self.assertTrue('foo' in cid)
         self.assertTrue('bar' in cid)
@@ -714,7 +713,7 @@ class TestCaseInsensitiveDict(unittest.TestCase):
         cid['spam'] = 'blueval'
         cid.update({'sPam': 'notblueval'})
         self.assertEqual(cid['spam'], 'notblueval')
-        cid = CaseInsensitiveDict({'Foo': 'foo','BAr': 'bar'})
+        cid = CaseInsensitiveDict({'Foo': 'foo', 'BAr': 'bar'})
         cid.update({'fOO': 'anotherfoo', 'bAR': 'anotherbar'})
         self.assertEqual(len(cid), 2)
         self.assertEqual(cid['foo'], 'anotherfoo')

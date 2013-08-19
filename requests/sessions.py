@@ -26,10 +26,10 @@ from .utils import requote_uri, get_environ_proxies, get_netrc_auth
 
 from .status_codes import codes
 REDIRECT_STATI = (
-    codes.moved, # 301
-    codes.found, # 302
-    codes.other, # 303
-    codes.temporary_moved, # 307
+    codes.moved,  # 301
+    codes.found,  # 302
+    codes.other,  # 303
+    codes.temporary_moved,  # 307
 )
 DEFAULT_REDIRECT_LIMIT = 30
 
